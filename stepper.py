@@ -54,8 +54,8 @@ err = True
 try:
     while True:
         angles = int(input("Insert angle (0-360): "))
-        newAngle = remap(angles, 0, 360, 0, maxSteps)
-
+        newAngle = round(remap(angles, 0, 360, 0, maxSteps)
+                         )
         while pastAngle != newAngle:
             if pastAngle < newAngle:
                 GPIO.output(DIR_PIN, GPIO.LOW)
@@ -63,14 +63,14 @@ try:
 
             if (pastAngle >= newAngle):
                 GPIO.output(DIR_PIN, GPIO.HIGH)
-                pastAngle = -1
+                pastAngle = - 1
 
             GPIO.output(STEP_PIN, GPIO.HIGH)
             sleep(topSpeed)
             GPIO.output(STEP_PIN, GPIO.LOW)
             sleep(topSpeed)
 
-            print(f'Past Anle = {pastAngle} | New Angle {newAngle} |\n')
+            print(f'Past Angle = {pastAngle} | New Angle {newAngle} |\n')
 
         pastAngle = newAngle
         print(f"Current angle = {angles}")
