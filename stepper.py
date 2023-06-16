@@ -1,5 +1,6 @@
-import RPi.GPIO as GPIO  
+import RPi.GPIO as GPIO
 from time import sleep
+
 
 def remap(x, oMin, oMax, nMin, nMax):
 
@@ -36,15 +37,16 @@ def remap(x, oMin, oMax, nMin, nMax):
 
     return result
 
-DIR_PIN = 17     
-STEP_PIN = 27  
+
+DIR_PIN = 17
+STEP_PIN = 27
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(DIR_PIN, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(STEP_PIN, GPIO.OUT, initial=GPIO.LOW)
 
-maxSteps=200
-topSpeed = 1
+maxSteps = 200
+topSpeed = 0.001
 angles, newAngle, pastAngle = 0
 err = True
 
@@ -52,23 +54,23 @@ try:
     while True:
         print("Insert angle (0-360): ")
         angles = input
-        newAngle = remap(angles,0,360,0,maxSteps)
-        
+        newAngle = remap(angles, 0, 360, 0, maxSteps)
+
         while pastAngle != newAngle:
             if pastAngle < newAngle:
-                GPIO.output(DIR_PIN,GPIO.LOW)
-                pastAngle =+ 1
-            
-            if(pastAngle >= newAngle):
-                GPIO.output(DIR_PIN,GPIO.HIGH)
-                pastAngle=-1
+                GPIO.output(DIR_PIN, GPIO.LOW)
+                pastAngle = + 1
+
+            if (pastAngle >= newAngle):
+                GPIO.output(DIR_PIN, GPIO.HIGH)
+                pastAngle = -1
 
             GPIO.output(STEP_PIN, GPIO.HIGH)
             sleep(topSpeed)
             GPIO.output(STEP_PIN, GPIO.LOW)
             sleep(topSpeed)
-            
-            print (f'Past Anle = {pastAngle} | New Angle {newAngle} |\n')
+
+            print(f'Past Anle = {pastAngle} | New Angle {newAngle} |\n')
 
         pastAngle = newAngle
         print(f"Current angle = {angles}")
