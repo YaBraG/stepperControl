@@ -53,7 +53,7 @@ err = True
 
 try:
     while True:
-        angles = input("Insert angle (0-360): ")
+        angles = int(input("Insert angle (0-360): "))
         newAngle = remap(angles, 0, 360, 0, maxSteps)
 
         while pastAngle != newAngle:
