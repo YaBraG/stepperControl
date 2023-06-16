@@ -38,8 +38,8 @@ def remap(x, oMin, oMax, nMin, nMax):
     return result
 
 
-DIR_PIN = 8
-STEP_PIN = 27
+DIR_PIN = 11
+STEP_PIN = 13
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
