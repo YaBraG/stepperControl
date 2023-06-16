@@ -56,8 +56,8 @@ try:
         angles = int(input("Insert angle (0-360): "))
         newAngle = round(remap(angles, 0, 360, 0, maxSteps))
 
-        if newAngle >= 360:
-            newAngle = 360
+        if newAngle >= maxSteps:
+            newAngle = maxSteps
         if newAngle <= 0:
             newAngle = 0
 
