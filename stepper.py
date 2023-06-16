@@ -78,7 +78,7 @@ try:
             print(f'Past Angle = {pastAngle} | New Angle {newAngle} |\n')
 
         pastAngle = newAngle
-        print(f"Current angle = {angles}")
+        print(f"Current angle = {newAngle}")
         sleep(1)
 
 except KeyboardInterrupt:
