@@ -57,11 +57,11 @@ try:
         newAngle = round(remap(angles, 0, 360, 0, maxSteps)
                          )
         while pastAngle != newAngle:
-            if pastAngle < newAngle:
+            if pastAngle <= newAngle:
                 GPIO.output(DIR_PIN, GPIO.LOW)
                 pastAngle += 1
 
-            if pastAngle >= newAngle:
+            if pastAngle > newAngle:
                 GPIO.output(DIR_PIN, GPIO.HIGH)
                 pastAngle -= 1
 
