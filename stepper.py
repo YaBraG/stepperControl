@@ -48,15 +48,12 @@ GPIO.setup(STEP_PIN, GPIO.OUT, initial=GPIO.LOW)
 
 maxSteps = 200
 topSpeed = 0.001
-angles = 0
-newAngle = 0
-pastAngle = 0
+
 err = True
 
 try:
     while True:
-        print("Insert angle (0-360): ")
-        angles = input
+        angles = input("Insert angle (0-360): ")
         newAngle = remap(angles, 0, 360, 0, maxSteps)
 
         while pastAngle != newAngle:
