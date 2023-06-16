@@ -54,8 +54,13 @@ err = True
 try:
     while True:
         angles = int(input("Insert angle (0-360): "))
-        newAngle = round(remap(angles, 0, 360, 0, maxSteps)
-                         )
+        newAngle = round(remap(angles, 0, 360, 0, maxSteps))
+
+        if newAngle >= 360:
+            newAngle = 360
+        if newAngle <= 0:
+            newAngle = 0
+
         while pastAngle != newAngle:
             if pastAngle <= newAngle:
                 GPIO.output(DIR_PIN, GPIO.LOW)
