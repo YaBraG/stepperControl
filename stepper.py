@@ -46,7 +46,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(DIR_PIN, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(STEP_PIN, GPIO.OUT, initial=GPIO.LOW)
 
-maxSteps = 200
+maxSteps = 400
 topSpeed = 0.001
 pastAngle = 0
 err = True
