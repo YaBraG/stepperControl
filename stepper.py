@@ -41,6 +41,7 @@ def remap(x, oMin, oMax, nMin, nMax):
 DIR_PIN = 17
 STEP_PIN = 27
 
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(DIR_PIN, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(STEP_PIN, GPIO.OUT, initial=GPIO.LOW)
