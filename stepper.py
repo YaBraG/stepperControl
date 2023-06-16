@@ -38,7 +38,7 @@ def remap(x, oMin, oMax, nMin, nMax):
     return result
 
 
-DIR_PIN = 17
+DIR_PIN = 8
 STEP_PIN = 27
 
 GPIO.setwarnings(False)
