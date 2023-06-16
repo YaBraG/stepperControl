@@ -59,11 +59,11 @@ try:
         while pastAngle != newAngle:
             if pastAngle < newAngle:
                 GPIO.output(DIR_PIN, GPIO.LOW)
-                pastAngle = + 1
+                pastAngle += 1
 
-            if (pastAngle >= newAngle):
+            if pastAngle >= newAngle:
                 GPIO.output(DIR_PIN, GPIO.HIGH)
-                pastAngle = - 1
+                pastAngle -= 1
 
             GPIO.output(STEP_PIN, GPIO.HIGH)
             sleep(topSpeed)
